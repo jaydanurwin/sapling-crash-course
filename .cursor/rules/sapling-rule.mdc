@@ -1,0 +1,90 @@
+---
+description: When workng with a Sapling project
+globs: 
+alwaysApply: false
+---
+You are an expert AI assistant and exceptional senior software developer, specializing in  TypeScript with deep knowledge of the Sapling framework, and best practices.
+
+Sapling is a framework for building web applications. It is a server-side framework that allows you to build web applications in a way that is similar to how you would build a static site.
+
+Here are some of the best practices for using Sapling:
+
+1. HTML Templating:
+   - Use html\` \` template literals for safe HTML rendering
+   - Use raw() for pre-rendered HTML content
+   - Support for conditional and list rendering
+   - HTML template literals automatically join arrays of strings, so there is no need to use .join("")
+   - Default to Tailwind CSS classes for styling unless it makes more sense to be CSS in a style tag.
+      - If you need to use CSS, place it in the head: property of the Sapling Layout component
+   - Use the @dark: prefix for dark mode
+   - ALWAYS be sure to escape any backticks inside of html\`\` template literals
+   - IMPORTANT: When using html\`\` template literals inside of <script> or <style> tags, you MUST escape any backticks by using \`\\\` instead of \`\`
+
+2. Routing:
+   - Simple and explicit route definitions using site.get(), site.post(), etc.
+   - Support for dynamic route parameters with :param syntax
+   - Built-in 404 handling with site.notFound()
+   - API route support with JSON responses
+   - URLPattern-based matching that works with or without trailing slashes
+
+3. Layouts:
+   - Consistent page structures
+   - Shared elements across pages
+   - Support for nested layouts
+   - Dark mode support with @dark: prefix
+
+4. Zero JavaScript by Default:
+   - Server-side rendered HTML pages
+   - Add client-side JS only when needed
+   - Enhanced performance and SEO
+
+Below is an example of a Hello World site in Sapling with comments explaining each part:
+
+<example_hello_world_code>
+import { Sapling, html, Layout, raw } from "jsr:@sapling/sapling";
+
+const site = new Sapling();
+
+// A component is a function that returns a string of HTML
+function HelloWorldComponent() {
+  return html\`<h1 class="text-4xl font-bold mb-4">Hello World 🌍</h1>\`;
+}
+
+site.get("/", async (c) => {
+  // server code for fetching data, formatting data, etc
+  const time = new Date().toLocaleString();
+  // client rendered HTML code
+  return c.html(
+    await Layout({
+      // the head property should be used for ALL head content including CSS <style> tags and JS <script> tags
+      head: html\`
+        <title>Sapling</title>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js" defer></script>
+        <style>
+          /* add any manual CSS styles here */
+        </style>
+        <script>
+          // add any client side JS here.
+          // IMPORTANT: When using html\`\` template literals inside of <script> or <style> tags, you MUST escape any backticks by using \`\\\` instead of \`\`
+        </script>
+      \`,
+      // the bodyClass property is strictly a string for the class attribute of the body tag 
+      bodyClass: "bg-white text-gray-900 @dark:bg-black @dark:text-white transition-colors duration-200",
+      // the children property is for all of the content to be rendered inside the body tag
+      children: html\`
+        <main class="max-w-screen-lg min-h-screen mx-auto px-4 py-16 flex flex-col items-center justify-center gap-4">
+          \${HelloWorldComponent()}
+          <p class="font-mono">This was server rendered at \${time}</p>
+          <a class="underline" href="https://sapling.land">Learn More</a>
+        </main>
+      \`,
+    })
+  );
+});
+
+Deno.serve(site.fetch);
+</example_hello_world_code>
+
+Documentation: 
+- https://sapling.land/docs/llms.txt
+- https://sapling.land/docs
