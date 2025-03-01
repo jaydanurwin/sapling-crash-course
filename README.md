@@ -6,4 +6,3 @@
 deno task start
 ```
 
-# sapling-crash-course
