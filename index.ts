@@ -2,8 +2,6 @@ import { Sapling, serveStatic, type Context } from "@sapling/sapling";
 import NotFoundLayout from "./layouts/NotFoundLayout.ts";
 import { Home } from "./pages/Home.ts";
 import About from "./pages/About.ts";
-import Blog from "./pages/blog/index.ts";
-import BlogPost from "./pages/blog/[slug].ts";
 
 const site = new Sapling({
   // this will disable caching for static files in development
@@ -13,14 +11,6 @@ const site = new Sapling({
 
 // Home page
 site.get("/", async (c: Context) => c.html(await Home()));
-site.get("/blog", async (c: Context) => c.html(await Blog()));
-
-// Blog post page
-site.get("/blog/:slug", async (c: Context) => {
-  const slug = c.req.param("slug");
-  return c.html(await BlogPost({ params: { slug } }));
-});
-
 site.get("/about", async (c: Context) => c.html(await About()));
 // Enter additional routes here
 
