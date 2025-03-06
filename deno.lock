@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@sapling/image@0.3": "0.3.0",
+    "jsr:@sapling/image@~0.3.1": "0.3.1",
     "jsr:@sapling/markdown@0.3": "0.3.0",
     "jsr:@sapling/sapling@0.5": "0.5.0",
     "jsr:@std/fs@*": "1.0.10",
@@ -21,8 +21,8 @@
     "npm:wasm-image-optimization@^1.2.28": "1.2.28"
   },
   "jsr": {
-    "@sapling/image@0.3.0": {
-      "integrity": "623e5cd5a51521b6f4bb78f2b34878eecbd53e4efe49098d92f9044b1db90d39",
+    "@sapling/image@0.3.1": {
+      "integrity": "e511676b1085b3e46edbdfd1ea2d0dc2508a66c14143f6f479fc5ccb13a398e5",
       "dependencies": [
         "jsr:@sapling/sapling",
         "jsr:@std/fs@^1.0.14",
@@ -1270,7 +1270,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@sapling/image@0.3",
+      "jsr:@sapling/image@~0.3.1",
       "jsr:@sapling/markdown@0.3",
       "jsr:@sapling/sapling@0.5",
       "npm:unocss@66"

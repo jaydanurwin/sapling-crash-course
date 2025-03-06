@@ -5,7 +5,7 @@
     "images": "deno run -A scripts/images.ts"
   },
   "imports": {
-    "@sapling/image": "jsr:@sapling/image@^0.3.0",
+    "@sapling/image": "jsr:@sapling/image@^0.3.1",
     "@sapling/markdown": "jsr:@sapling/markdown@^0.3.0",
     "@sapling/sapling": "jsr:@sapling/sapling@^0.5.0",
     "unocss": "npm:unocss@^66.0.0"
