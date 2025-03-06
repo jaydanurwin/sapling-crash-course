@@ -2,6 +2,8 @@ import { html, raw } from "@sapling/sapling";
 import Layout from "../../layouts/Layout.ts";
 import { getBlogPost } from "../../utils/getBlogPostContent.ts";
 import { renderMarkdown } from "@sapling/markdown";
+import { Picture } from "@sapling/image";
+
 export default async function BlogPost({
   params,
 }: {
@@ -18,6 +20,13 @@ export default async function BlogPost({
     children: html`
       <article class="max-w-screen-md min-h-screen mx-auto px-4 py-16">
         <header class="mb-8">
+          ${Picture({
+            src: `/images/blog/${post.slug}/featured`,
+            alt: post.title,
+            width: 1024,
+            imgClass: "w-full h-[400px] object-cover rounded-lg mb-4",
+            height: 768,
+          })}
           <h1 class="text-4xl font-bold mb-4">${post.title}</h1>
           <p class="text-gray-600 @dark:text-gray-400">
             ${new Date(post.publishesAtDate).toLocaleDateString("en-US", {

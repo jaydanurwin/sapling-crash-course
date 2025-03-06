@@ -1,9 +1,11 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@sapling/image@0.3": "0.3.0",
     "jsr:@sapling/markdown@0.3": "0.3.0",
     "jsr:@sapling/sapling@0.5": "0.5.0",
     "jsr:@std/fs@*": "1.0.10",
+    "jsr:@std/fs@^1.0.14": "1.0.14",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/yaml@*": "1.0.5",
@@ -15,9 +17,19 @@
     "npm:marked@^15.0.6": "15.0.7",
     "npm:shiki@^1.22.2": "1.29.2",
     "npm:unocss@66": "66.0.0",
-    "npm:urlpattern-polyfill@10": "10.0.0"
+    "npm:urlpattern-polyfill@10": "10.0.0",
+    "npm:wasm-image-optimization@^1.2.28": "1.2.28"
   },
   "jsr": {
+    "@sapling/image@0.3.0": {
+      "integrity": "623e5cd5a51521b6f4bb78f2b34878eecbd53e4efe49098d92f9044b1db90d39",
+      "dependencies": [
+        "jsr:@sapling/sapling",
+        "jsr:@std/fs@^1.0.14",
+        "jsr:@std/path",
+        "npm:wasm-image-optimization"
+      ]
+    },
     "@sapling/markdown@0.3.0": {
       "integrity": "18de575335c391c3defc490b0386375fe87cd41e32ab87f0ec12010dcba2bf60",
       "dependencies": [
@@ -39,6 +51,12 @@
     },
     "@std/fs@1.0.10": {
       "integrity": "bf041f9d7a0a460817f0421be8946d0e06011b3433e6c83a215628de5e3c7c2c",
+      "dependencies": [
+        "jsr:@std/path"
+      ]
+    },
+    "@std/fs@1.0.14": {
+      "integrity": "1e84bf0b95fe08f41f1f4aea9717bbf29f45408a56ce073b0114474ce1c9fccf",
       "dependencies": [
         "jsr:@std/path"
       ]
@@ -1172,6 +1190,15 @@
         "@vue/shared"
       ]
     },
+    "wasm-image-optimization@1.2.28": {
+      "integrity": "sha512-mjhJXHSd/5kqASdRL/2skvVMNSv23NwQY3w/yGqQM0dbJjwSAY8BJtAaD9qrt69TZjvNmJl09EwOHRRi3ah/Ug==",
+      "dependencies": [
+        "worker-lib"
+      ]
+    },
+    "worker-lib@2.0.7": {
+      "integrity": "sha512-LkT+hMUakAAakGPtWVY3ZSJ91BgcXpPYzwcpJbkC2LXzwYiIiSgKxWxt1EM8s9c/z6Va6xZ49lELDvMSjwgbpA=="
+    },
     "zwitch@2.0.4": {
       "integrity": "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="
     }
@@ -1243,6 +1270,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@sapling/image@0.3",
       "jsr:@sapling/markdown@0.3",
       "jsr:@sapling/sapling@0.5",
       "npm:unocss@66"

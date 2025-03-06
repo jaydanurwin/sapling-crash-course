@@ -1,7 +1,7 @@
 import { html } from "@sapling/sapling";
 import Layout from "../../layouts/Layout.ts";
 import blogIndex from "../../content/blog-index.json" with { type: "json" };
-
+import { Picture } from "@sapling/image";
 export default async function About() {
   return await Layout({
     children: html`
@@ -21,6 +21,13 @@ export default async function About() {
             );
             return html`
               <article class="border-b border-gray-200 pb-8">
+                ${Picture({
+                  src: `images/blog/${post.slug}/featured`,
+                  alt: post.title,
+                  width: 1024,
+                  height: 768,
+                  imgClass: "w-full h-60 object-cover rounded-lg mb-4",
+                })}
                 <h2 class="text-2xl font-semibold mb-2">
                   <a
                     href="/blog/${post.slug}"
