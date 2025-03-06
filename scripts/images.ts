@@ -1,6 +1,6 @@
 import { optimizeImages } from "@sapling/image";
 
-optimizeImages({
+await optimizeImages({
   entries: [
     {
       input: "src/images/blog/nature-walk",
