@@ -12,11 +12,40 @@ export default async function BlogPost({
   // Get the blog post
   const post = await getBlogPost(params.slug);
   // Render the markdown
-  const rendered = await renderMarkdown(post.content);
+  const rendered = await renderMarkdown(post.content, {
+    shikiOptions: {
+      themes: {
+        light: "vitesse-light",
+        dark: "vitesse-dark",
+      },
+    },
+  });
 
   return await Layout({
     title: post.title,
     description: post.excerpt,
+    head: html`
+      <script type="module">
+        import CopyCode from "/scripts/CopyCode.js";
+        
+      </script>
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const preElements = document.querySelectorAll('pre');
+          preElements.forEach(pre => {
+            // Make pre tag relative for absolute positioning of button
+            pre.style.position = 'relative';
+            
+            // Create and append copy button
+            const copyButton = document.createElement('copy-code-button');
+            copyButton.style.position = 'absolute';
+            copyButton.style.top = '0.5rem';
+            copyButton.style.right = '0.5rem';
+            pre.appendChild(copyButton);
+          });
+        });
+      </script>
+    `,
     children: html`
       <article class="max-w-screen-md min-h-screen mx-auto px-4 py-16">
         <header class="mb-8">
