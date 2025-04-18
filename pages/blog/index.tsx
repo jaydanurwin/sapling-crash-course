@@ -1,6 +1,6 @@
 import Layout from "../../layouts/Layout.ts";
 import blogIndex from "../../content/blog-index.json" with { type: "json" };
-import Picture from "../../components/Picture.tsx";
+import { Picture } from "@sapling/image";
 
 export default function About() {
   return (

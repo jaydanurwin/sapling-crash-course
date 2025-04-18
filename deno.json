@@ -6,7 +6,7 @@
   },
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.7.7",
-    "@sapling/image": "jsr:@sapling/image@^0.3.1",
+    "@sapling/image": "jsr:@sapling/image@^0.4.0",
     "@sapling/markdown": "jsr:@sapling/markdown@^0.3.0",
     "@sapling/sapling": "jsr:@sapling/sapling@^0.6.0",
     "unocss": "npm:unocss@^66.0.0"

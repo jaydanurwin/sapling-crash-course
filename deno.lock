@@ -3,13 +3,11 @@
   "specifiers": {
     "jsr:@hono/hono@^4.7.5": "4.7.6",
     "jsr:@hono/hono@^4.7.7": "4.7.7",
-    "jsr:@sapling/image@~0.3.1": "0.3.1",
+    "jsr:@sapling/image@0.4": "0.4.0",
     "jsr:@sapling/markdown@0.3": "0.3.0",
-    "jsr:@sapling/sapling@0.5": "0.5.0",
     "jsr:@sapling/sapling@0.6": "0.6.0",
     "jsr:@std/fs@*": "1.0.10",
-    "jsr:@std/fs@^1.0.14": "1.0.14",
-    "jsr:@std/media-types@^1.1.0": "1.1.0",
+    "jsr:@std/fs@^1.0.14": "1.0.15",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "jsr:@std/yaml@*": "1.0.5",
     "npm:@types/node@*": "22.12.0",
@@ -19,8 +17,7 @@
     "npm:marked-shiki@^1.1.1": "1.2.0_marked@15.0.7_shiki@1.29.2",
     "npm:marked@^15.0.6": "15.0.7",
     "npm:shiki@^1.22.2": "1.29.2",
-    "npm:unocss@66": "66.0.0",
-    "npm:urlpattern-polyfill@10": "10.0.0",
+    "npm:unocss@66": "66.0.0_@types+node@22.12.0",
     "npm:wasm-image-optimization@^1.2.28": "1.2.28"
   },
   "jsr": {
@@ -30,10 +27,10 @@
     "@hono/hono@4.7.7": {
       "integrity": "74ea9985cb405fada079a922538f6baa06fa1ee150ce409c5bdae2c89ac05cba"
     },
-    "@sapling/image@0.3.1": {
-      "integrity": "e511676b1085b3e46edbdfd1ea2d0dc2508a66c14143f6f479fc5ccb13a398e5",
+    "@sapling/image@0.4.0": {
+      "integrity": "57ec85cafbb888304e1cdb422a05b5a80c5f4609dc09f119a2995e30b061b1fc",
       "dependencies": [
-        "jsr:@sapling/sapling@0.5",
+        "jsr:@hono/hono@^4.7.7",
         "jsr:@std/fs@^1.0.14",
         "jsr:@std/path",
         "npm:wasm-image-optimization"
@@ -46,16 +43,6 @@
         "npm:marked-gfm-heading-id",
         "npm:marked-shiki",
         "npm:shiki"
-      ]
-    },
-    "@sapling/sapling@0.5.0": {
-      "integrity": "8dd6261c2e85bbb9706723cd9a5067d75b844125e0a82a4d2e3d40ce55ed62c6",
-      "dependencies": [
-        "jsr:@std/media-types",
-        "jsr:@std/path",
-        "npm:@unocss/core",
-        "npm:@unocss/preset-uno",
-        "npm:urlpattern-polyfill"
       ]
     },
     "@sapling/sapling@0.6.0": {
@@ -72,14 +59,11 @@
         "jsr:@std/path"
       ]
     },
-    "@std/fs@1.0.14": {
-      "integrity": "1e84bf0b95fe08f41f1f4aea9717bbf29f45408a56ce073b0114474ce1c9fccf",
+    "@std/fs@1.0.15": {
+      "integrity": "c083fb479889d6440d768e498195c3fc499d426fbf9a6592f98f53884d1d3f41",
       "dependencies": [
         "jsr:@std/path"
       ]
-    },
-    "@std/media-types@1.1.0": {
-      "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
@@ -380,7 +364,15 @@
       "dependencies": [
         "@unocss/core",
         "@unocss/reset",
-        "@unocss/vite"
+        "@unocss/vite@66.0.0_vite@6.1.1"
+      ]
+    },
+    "@unocss/astro@66.0.0_@types+node@22.12.0": {
+      "integrity": "sha512-GBhXT6JPqXjDXoJZTXhySk83NgOt0UigChqrUUdG4x7Z+DVYkDBION8vZUJjw0OdIaxNQ4euGWu4GDsMF6gQQg==",
+      "dependencies": [
+        "@unocss/core",
+        "@unocss/reset",
+        "@unocss/vite@66.0.0_vite@6.1.1_@types+node@22.12.0"
       ]
     },
     "@unocss/cli@66.0.0": {
@@ -551,7 +543,21 @@
         "magic-string",
         "tinyglobby",
         "unplugin-utils",
-        "vite"
+        "vite@6.1.1"
+      ]
+    },
+    "@unocss/vite@66.0.0_vite@6.1.1_@types+node@22.12.0": {
+      "integrity": "sha512-IVcPX8xL+2edyXKt4tp9yu5A6gcbPVCsspfcL0XgziCr01kS+4qSoZ90F3IUs3hXc/AyO5eCpRtGFMPLpOjXQg==",
+      "dependencies": [
+        "@ampproject/remapping",
+        "@unocss/config",
+        "@unocss/core",
+        "@unocss/inspector",
+        "chokidar",
+        "magic-string",
+        "tinyglobby",
+        "unplugin-utils",
+        "vite@6.1.1_@types+node@22.12.0"
       ]
     },
     "@vue/compiler-core@3.5.13": {
@@ -1138,7 +1144,7 @@
     "unocss@66.0.0": {
       "integrity": "sha512-SHstiv1s7zGPSjzOsADzlwRhQM+6817+OqQE3Fv+N/nn2QLNx1bi3WXybFfz5tWkzBtyTZlwdPmeecsIs1yOCA==",
       "dependencies": [
-        "@unocss/astro",
+        "@unocss/astro@66.0.0",
         "@unocss/cli",
         "@unocss/core",
         "@unocss/postcss",
@@ -1155,7 +1161,30 @@
         "@unocss/transformer-compile-class",
         "@unocss/transformer-directives",
         "@unocss/transformer-variant-group",
-        "@unocss/vite"
+        "@unocss/vite@66.0.0_vite@6.1.1"
+      ]
+    },
+    "unocss@66.0.0_@types+node@22.12.0": {
+      "integrity": "sha512-SHstiv1s7zGPSjzOsADzlwRhQM+6817+OqQE3Fv+N/nn2QLNx1bi3WXybFfz5tWkzBtyTZlwdPmeecsIs1yOCA==",
+      "dependencies": [
+        "@unocss/astro@66.0.0_@types+node@22.12.0",
+        "@unocss/cli",
+        "@unocss/core",
+        "@unocss/postcss",
+        "@unocss/preset-attributify",
+        "@unocss/preset-icons",
+        "@unocss/preset-mini",
+        "@unocss/preset-tagify",
+        "@unocss/preset-typography",
+        "@unocss/preset-uno",
+        "@unocss/preset-web-fonts",
+        "@unocss/preset-wind",
+        "@unocss/preset-wind3",
+        "@unocss/transformer-attributify-jsx",
+        "@unocss/transformer-compile-class",
+        "@unocss/transformer-directives",
+        "@unocss/transformer-variant-group",
+        "@unocss/vite@66.0.0_vite@6.1.1_@types+node@22.12.0"
       ]
     },
     "unplugin-utils@0.2.4": {
@@ -1164,9 +1193,6 @@
         "pathe",
         "picomatch@4.0.2"
       ]
-    },
-    "urlpattern-polyfill@10.0.0": {
-      "integrity": "sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg=="
     },
     "vfile-message@4.0.2": {
       "integrity": "sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==",
@@ -1185,6 +1211,16 @@
     "vite@6.1.1": {
       "integrity": "sha512-4GgM54XrwRfrOp297aIYspIti66k56v16ZnqHvrIM7mG+HjDlAwS7p+Srr7J6fGvEdOJ5JcQ/D9T7HhtdXDTzA==",
       "dependencies": [
+        "esbuild",
+        "fsevents",
+        "postcss",
+        "rollup"
+      ]
+    },
+    "vite@6.1.1_@types+node@22.12.0": {
+      "integrity": "sha512-4GgM54XrwRfrOp297aIYspIti66k56v16ZnqHvrIM7mG+HjDlAwS7p+Srr7J6fGvEdOJ5JcQ/D9T7HhtdXDTzA==",
+      "dependencies": [
+        "@types/node",
         "esbuild",
         "fsevents",
         "postcss",
@@ -1288,7 +1324,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.7.7",
-      "jsr:@sapling/image@~0.3.1",
+      "jsr:@sapling/image@0.4",
       "jsr:@sapling/markdown@0.3",
       "jsr:@sapling/sapling@0.6",
       "npm:unocss@66"

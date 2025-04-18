@@ -2,7 +2,8 @@ import { html, raw } from "@hono/hono/html";
 import Layout from "../../layouts/Layout.ts";
 import { getBlogPost } from "../../utils/getBlogPostContent.ts";
 import { renderMarkdown } from "@sapling/markdown";
-import Picture from "../../components/Picture.tsx";
+import { Picture } from "@sapling/image";
+
 export default async function BlogPost({
   params,
 }: {
