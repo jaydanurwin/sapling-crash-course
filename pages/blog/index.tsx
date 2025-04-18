@@ -1,16 +1,16 @@
-import { html } from "@sapling/sapling";
 import Layout from "../../layouts/Layout.ts";
 import blogIndex from "../../content/blog-index.json" with { type: "json" };
-import { Picture } from "@sapling/image";
-export default async function About() {
-  return await Layout({
-    children: html`
+import Picture from "../../components/Picture.tsx";
+
+export default function About() {
+  return (
+    <Layout>
       <div
         class="max-w-screen-lg min-h-screen mx-auto px-4 py-16 flex flex-col items-center gap-8"
       >
         <h1 class="text-4xl font-bold">Blog</h1>
         <div class="w-full max-w-2xl space-y-8">
-          ${blogIndex.map((post) => {
+          {blogIndex.map((post) => {
             const date = new Date(post.publishesAtDate).toLocaleDateString(
               "en-US",
               {
@@ -19,30 +19,30 @@ export default async function About() {
                 day: "numeric",
               }
             );
-            return html`
+            return (
               <article class="border-b border-gray-200 pb-8">
-                ${Picture({
-                  src: `images/blog/${post.slug}/featured`,
-                  alt: post.title,
-                  width: 1024,
-                  height: 768,
-                  imgClass: "w-full h-60 object-cover rounded-lg mb-4",
-                })}
+                <Picture
+                  src={`/images/blog/${post.slug}/featured`}
+                  alt={post.title}
+                  width={1024}
+                  height={768}
+                  imgClass="w-full h-60 object-cover rounded-lg mb-4"
+                />
                 <h2 class="text-2xl font-semibold mb-2">
                   <a
-                    href="/blog/${post.slug}"
+                    href={`/blog/${post.slug}`}
                     class="hover:text-blue-600 transition-colors"
                   >
-                    ${post.title}
+                    {post.title}
                   </a>
                 </h2>
-                <p class="text-gray-600 text-sm mb-3">${date}</p>
-                <p class="text-gray-700">${post.excerpt}</p>
+                <p class="text-gray-600 text-sm mb-3">{date}</p>
+                <p class="text-gray-700">{post.excerpt}</p>
               </article>
-            `;
+            );
           })}
         </div>
       </div>
-    `,
-  });
+    </Layout>
+  );
 }

@@ -1,8 +1,5 @@
-import {
-  Layout as SaplingLayout,
-  html,
-  type LayoutProps,
-} from "@sapling/sapling";
+import { Layout as SaplingLayout, type LayoutProps } from "@sapling/sapling";
+import { html } from "@hono/hono/html";
 import { BaseHead } from "../components/BaseHead.ts";
 import { config } from "../uno.config.ts";
 
@@ -13,7 +10,6 @@ export type BaseLayoutProps = LayoutProps & {
 
 export default async function Layout(props: BaseLayoutProps) {
   return await SaplingLayout({
-    stream: true,
     enableIslands: true,
     unoConfig: config,
     head: html`${await BaseHead({

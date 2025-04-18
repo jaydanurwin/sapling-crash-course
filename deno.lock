@@ -1,9 +1,12 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@hono/hono@^4.7.5": "4.7.6",
+    "jsr:@hono/hono@^4.7.7": "4.7.7",
     "jsr:@sapling/image@~0.3.1": "0.3.1",
     "jsr:@sapling/markdown@0.3": "0.3.0",
     "jsr:@sapling/sapling@0.5": "0.5.0",
+    "jsr:@sapling/sapling@0.6": "0.6.0",
     "jsr:@std/fs@*": "1.0.10",
     "jsr:@std/fs@^1.0.14": "1.0.14",
     "jsr:@std/media-types@^1.1.0": "1.1.0",
@@ -21,10 +24,16 @@
     "npm:wasm-image-optimization@^1.2.28": "1.2.28"
   },
   "jsr": {
+    "@hono/hono@4.7.6": {
+      "integrity": "407da752c13d4644bb9d363f8349db7542e21abc3db8c13ca90cf69d8ab675ad"
+    },
+    "@hono/hono@4.7.7": {
+      "integrity": "74ea9985cb405fada079a922538f6baa06fa1ee150ce409c5bdae2c89ac05cba"
+    },
     "@sapling/image@0.3.1": {
       "integrity": "e511676b1085b3e46edbdfd1ea2d0dc2508a66c14143f6f479fc5ccb13a398e5",
       "dependencies": [
-        "jsr:@sapling/sapling",
+        "jsr:@sapling/sapling@0.5",
         "jsr:@std/fs@^1.0.14",
         "jsr:@std/path",
         "npm:wasm-image-optimization"
@@ -47,6 +56,14 @@
         "npm:@unocss/core",
         "npm:@unocss/preset-uno",
         "npm:urlpattern-polyfill"
+      ]
+    },
+    "@sapling/sapling@0.6.0": {
+      "integrity": "4cf56ad45c95ed5ad6b2d8f19226f1c80d3869cce309cc00db014884b9428873",
+      "dependencies": [
+        "jsr:@hono/hono@^4.7.5",
+        "npm:@unocss/core",
+        "npm:@unocss/preset-uno"
       ]
     },
     "@std/fs@1.0.10": {
@@ -1270,9 +1287,10 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@hono/hono@^4.7.7",
       "jsr:@sapling/image@~0.3.1",
       "jsr:@sapling/markdown@0.3",
-      "jsr:@sapling/sapling@0.5",
+      "jsr:@sapling/sapling@0.6",
       "npm:unocss@66"
     ]
   }

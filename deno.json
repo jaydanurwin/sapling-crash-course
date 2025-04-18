@@ -1,14 +1,19 @@
 {
   "tasks": {
-    "start": "deno run -A --watch index.ts",
-    "dev": "ENV=development deno run -A --watch index.ts",
+    "start": "deno run -A --watch index.tsx",
+    "dev": "ENV=development deno run -A --watch index.tsx",
     "images": "deno run -A scripts/images.ts"
   },
   "imports": {
+    "@hono/hono": "jsr:@hono/hono@^4.7.7",
     "@sapling/image": "jsr:@sapling/image@^0.3.1",
     "@sapling/markdown": "jsr:@sapling/markdown@^0.3.0",
-    "@sapling/sapling": "jsr:@sapling/sapling@^0.5.0",
+    "@sapling/sapling": "jsr:@sapling/sapling@^0.6.0",
     "unocss": "npm:unocss@^66.0.0"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "@hono/hono/jsx"
   },
   "nodeModulesDir": "auto"
 }

@@ -1,9 +1,8 @@
-import { html, raw } from "@sapling/sapling";
+import { html, raw } from "@hono/hono/html";
 import Layout from "../../layouts/Layout.ts";
 import { getBlogPost } from "../../utils/getBlogPostContent.ts";
 import { renderMarkdown } from "@sapling/markdown";
-import { Picture } from "@sapling/image";
-
+import Picture from "../../components/Picture.tsx";
 export default async function BlogPost({
   params,
 }: {
@@ -21,10 +20,11 @@ export default async function BlogPost({
     },
   });
 
-  return await Layout({
-    title: post.title,
-    description: post.excerpt,
-    head: html`
+  return (
+    <Layout
+      title={post.title}
+      description={post.excerpt}
+      head={html`
       <script type="module">
         import CopyCode from "/scripts/CopyCode.js";
         
@@ -45,20 +45,20 @@ export default async function BlogPost({
           });
         });
       </script>
-    `,
-    children: html`
+    `}
+    >
       <article class="max-w-screen-md min-h-screen mx-auto px-4 py-16">
         <header class="mb-8">
-          ${Picture({
-            src: `/images/blog/${post.slug}/featured`,
-            alt: post.title,
-            width: 1024,
-            imgClass: "w-full h-[400px] object-cover rounded-lg mb-4",
-            height: 768,
-          })}
-          <h1 class="text-4xl font-bold mb-4">${post.title}</h1>
+          <Picture
+            src={`/images/blog/${post.slug}/featured`}
+            alt={post.title}
+            width={1024}
+            imgClass="w-full h-[400px] object-cover rounded-lg mb-4"
+            height={768}
+          />
+          <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
           <p class="text-gray-600 @dark:text-gray-400">
-            ${new Date(post.publishesAtDate).toLocaleDateString("en-US", {
+            {new Date(post.publishesAtDate).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -66,9 +66,9 @@ export default async function BlogPost({
           </p>
         </header>
         <div class=" prose @dark:prose-invert max-w-screen-md">
-          ${raw(rendered)}
+          {raw(rendered)}
         </div>
       </article>
-    `,
-  });
+    </Layout>
+  );
 }
